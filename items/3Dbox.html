@@ -9,14 +9,14 @@
 	<title>3d box</title>
 	<style type="text/css">
 		*{margin: 0; padding: 0;}
-		.wrap {
+		#dimension {
 			perspective: 800px;
 			position: absolute;
 			/*left: 40%; top: 40%;*/
 			width: 100px; height: 100px;
 			margin: 50px;
 		}
-		.box {
+		#dimension .box {
 			/*background: pink;*/
 			position: relative;
 			width: 100px; height: 100px;
@@ -25,10 +25,10 @@
 			transition-duration: 3s;
 			/*transition-delay: 2s;*/
 		}
-		.box:hover {
+		#dimension .box:hover {
 			transform: translateZ(-50px) rotateY(-315deg) rotateX(45deg);
 		}
-		.side {
+		#dimension .side {
 			width: 100px; height: 100px;
 			/*background: sandybrown;*/
 			background: linear-gradient(to right, sandybrown 40%, #000 40%, #000 60%, sandybrown 60%);
@@ -38,24 +38,24 @@
 			/*border: 1px solid rosybrown;*/
 			backface-visibility: hidden;
 		}
-		.side1 {
+		#dimension .side1 {
 			transform: rotateY(0deg) translateZ(50px);
 		}
-		.side2 {
+		#dimension .side2 {
 			transform: rotateY(90deg) translateZ(50px);
 		}
-		.side3 {
+		#dimension .side3 {
 			transform: rotateY(180deg) translateZ(50px);
 		}
-		.side4 {
+		#dimension .side4 {
 			transform: rotateY(270deg) translateZ(50px);
 		}
-		.side5 {
+		#dimension .side5 {
 			/*background: red;*/
 			background:linear-gradient(to top, transparent 40%, #000 40%, #000 60%, transparent 60%),		linear-gradient(to right, sandybrown 40%, #000 40%, #000 60%, sandybrown 60%);
 			transform: rotateX(90deg) translateZ(50px);
 		}
-		.side6 {
+		#dimension .side6 {
 			background: red;
 			background:linear-gradient(to top, transparent 40%, #000 40%, #000 60%, transparent 60%),		linear-gradient(to right, sandybrown 40%, #000 40%, #000 60%, sandybrown 60%);
 			transform: rotateX(270deg) translateZ(50px);
@@ -63,7 +63,7 @@
 	</style>
 </head>
 <body>
-	<div class="wrap">
+	<div id="dimension">
 		<div class="box">
 			<div class="side side1"></div>
 			<div class="side side2"></div>
@@ -72,7 +72,7 @@
 			<div class="side side5"></div>
 			<div class="side side6"></div>
 		</div>
-</div>
+	</div>
 <script type="text/javascript">
 	
 </script>
