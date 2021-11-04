@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+	<title>시작페이지</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+	<style type="text/css">
+		*{margin: 0; padding: 0;}
+		li {list-style: none;}
+		button {border: none; background: none;}
+		#homemenu {
+			background: #fbfbfb;
+			width: 40%; height: 100vh;
+			position: relative; left: 0;
+			box-shadow: 0 1px 15px rgba(0, 0, 0, .3);
+			border-top-right-radius: 25px;
+			border-bottom-right-radius: 25px;
+			transition: all .7s;
+			user-select: none;
+			z-index: 100;
+		}
+		#homemenu.close {left: -40%;}
+		#homemenu .menuList {
+			/*background: pink;*/
+			width: 100%;
+			position: absolute;
+			left: 0; top: 50%;
+			transform:translateY(-50%);
+		}
+		#homemenu .menuList li {
+			text-align: center;
+			padding: 5px;
+		}
+		#homemenu .menuList li button {
+			font-size: 19px;
+			font-size: 1.2rem;
+			cursor: pointer;
+			color: #888;
+			transition: all .2s;
+		}
+		#homemenu .menuList li button:hover {font-weight: 700;color: #666;}
+		#homemenu .menuBtn {
+			position: absolute;
+			right: 20px; top: 10px;
+			font-size: 25px; font-size: 1.6rem;
+			color: #999; cursor: pointer;
+			transition: color .2s, right .7s,transform .7s;
+		}
+		#homemenu .menuBtn:hover {color: #666;}
+		#homemenu .menuBtn.close {
+			right: -30px;
+			transform: rotate(360deg);
+		}
+		main#content {
+			position: absolute;
+			width: 100%; height: 100%;
+			left: 0; top: 0;
+		}
+	</style>
+</head>
+<body>
+	<nav id="homemenu">
+		<ul class="menuList">
+			<li><button id="lightbulb">조명 스위치</button></li>
+			<li><button id="fan">선풍기</button></li>
+			<li><button id="bgLine">배경 선 움직임</button></li>
+			<li><button id="3dBox">3D박스</button></li>
+			<li><button id="neon">네온효과</button></li>
+			<li><button id="007">007오프닝</button></li>
+		</ul>
+		<div class="menuBtn show"><i class="fas fa-times"></i></div>
+	</nav>
+	
+
+	<main id="content"></main>
+
+
+	<script type="text/javascript">
+		$(function(){
+			const $homeMenu = $('#homemenu');
+			const $menuBtn = $homeMenu.find('.menuBtn');
+			const $menuList = $homeMenu.find('.menuList');
+			const $content = $('#content');
+
+			const CLOSE_ICON = 'fa-times';
+			const SHOW_ICON = 'fa-bars';
+
+			function menuClose(){
+				$homeMenu.addClass('close');
+				$menuBtn.removeClass('show').addClass('close');
+				setTimeout(function(){
+					$menuBtn.find('i').attr('class',`fas ${SHOW_ICON}`);
+				},300);
+			}
+			function menuOpen(){
+				$homeMenu.removeClass('close');
+				$menuBtn.removeClass('close').addClass('show');
+				setTimeout(function(){
+					$menuBtn.find('i').attr('class',`fas ${CLOSE_ICON}`);
+				},300);
+			}
+			$menuList.find('button').click(function(){
+				menuClose();
+			});
+			$menuBtn.click(function(){
+				 if ($(this).hasClass('show')) {menuClose();}
+				 else {menuOpen();}
+			});
+
+			$menuList.find('#lightbulb').click(function(){
+				$content.load('items/light_onoff.html');
+			});
+			$menuList.find('#fan').click(function(){
+				$content.load('items/fan.html');
+			});
+			$menuList.find('#bgLine').click(function(){
+				$content.load('items/line_move.html');
+			});
+			$menuList.find('#3dBox').click(function(){
+				$content.load('items/3Dbox.html');
+			});
+			$menuList.find('#neon').click(function(){
+				$content.load('items/neon_box.html');
+			});
+			$menuList.find('#007').click(function(){
+				$content.load('items/007_circle.html');
+			});
+		});
+	</script>
+</body>
+</html>
