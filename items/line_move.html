@@ -4,19 +4,34 @@
 	<meta charset="utf-8">
 	<title>line gradient - by youtube</title>
 	<style type="text/css">
+		:root {
+			--red : #e1d89f;
+			--green : #588b8b;
+			--pink : #dc9283;
+		}
 		*{margin: 0; padding: 0;}
 		#lineWrap {
 			position: fixed;
 			width: 100%; height: 100%;
 			background: #444;
 		}
+		#lineWrap .body {
+			width: 700px; height: 400px;
+			position: relative; top: 50%; left: 50%; 
+			margin: -200px 0 0 -350px;
+		}
 		#lineWrap .box {
-			margin: 10px auto;
+			display: inline-block;
 			width: 300px; height: 400px;
-			background: linear-gradient(45deg, pink 25%, #777 25%, #777 50%, pink 50%, pink 75%, #777 75%);
+			background: linear-gradient(45deg, var(--red) 25%, #777 25%, #777 50%, var(--red) 50%, var(--red) 75%, #777 75%);
 			background-size: 40px 40px;
 			filter: grayscale(1);
 			transition: all .5s;
+		}
+		#lineWrap .box:last-child {
+			background: linear-gradient(45deg, var(--green) 25%, var(--pink) 25%, var(--pink) 50%, var(--green) 50%, var(--green) 75%, var(--pink) 75%);
+			background-size: 40px 40px;
+			float: right;
 		}
 		#lineWrap .box:hover {
 			animation: move .5s linear infinite;
@@ -30,7 +45,10 @@
 </head>
 <body>
 	<div id="lineWrap">
-		<div class="box"></div>
+		<div class="body">
+			<div class="box"></div>
+			<div class="box"></div>
+		</div>
 	</div>
 </body>
 </html>
