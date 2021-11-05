@@ -5,8 +5,8 @@
 	<title>line gradient - by youtube</title>
 	<style type="text/css">
 		:root {
-			--red : #e1d89f;
-			--green : #588b8b;
+			--yellow : #e1d89f;
+			--red : #C54F1F;
 			--pink : #dc9283;
 		}
 		*{margin: 0; padding: 0;}
@@ -21,15 +21,16 @@
 			margin: -200px 0 0 -350px;
 		}
 		#lineWrap .box {
+			position: relative;
 			display: inline-block;
 			width: 300px; height: 400px;
-			background: linear-gradient(45deg, var(--red) 25%, #777 25%, #777 50%, var(--red) 50%, var(--red) 75%, #777 75%);
+			background: linear-gradient(45deg, var(--yellow) 25%, #777 25%, #777 50%, var(--yellow) 50%, var(--yellow) 75%, #777 75%);
 			background-size: 40px 40px;
 			filter: grayscale(1);
 			transition: all .5s;
 		}
 		#lineWrap .box:last-child {
-			background: linear-gradient(45deg, var(--green) 25%, var(--pink) 25%, var(--pink) 50%, var(--green) 50%, var(--green) 75%, var(--pink) 75%);
+			background: linear-gradient(45deg, var(--red) 25%, var(--pink) 25%, var(--pink) 50%, var(--red) 50%, var(--red) 75%, var(--pink) 75%);
 			background-size: 40px 40px;
 			float: right;
 		}
@@ -41,13 +42,23 @@
 			0%{background-position: 0px;}
 			100%{background-position: 40px;}
 		}
+		#lineWrap .box img {
+			position: absolute;
+			bottom: 0; left: 50%;
+			height: 300px;
+			transform: translateX(-50%);
+			transition: height .5s;
+		}
+		#lineWrap .box:hover img {
+			height: 480px;
+		}
 	</style>
 </head>
 <body>
 	<div id="lineWrap">
 		<div class="body">
-			<div class="box"></div>
-			<div class="box"></div>
+			<div class="box"><img src="../img/lineImg1.png" alt="순록 실루엣"></div>
+			<div class="box"><img src="../img/lineImg2.png" alt="트리 실루엣"></div>
 		</div>
 	</div>
 </body>
